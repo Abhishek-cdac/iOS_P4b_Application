@@ -1,0 +1,219 @@
+
+/* Class = "UIButton"; normalTitle = "LOGIN"; ObjectID = "0YW-zJ-ARj"; */
+"0YW-zJ-ARj.normalTitle" = "تسجيل الدخول";
+
+/* Class = "UILabel"; text = "Contact Us"; ObjectID = "252-06-cUg"; */
+"252-06-cUg.text" = "اتصل بنا";
+
+/* Class = "UILabel"; text = "Business"; ObjectID = "3u5-zU-cHf"; */
+"3u5-zU-cHf.text" = "اعمال";
+
+/* Class = "UILabel"; text = "Don't have an account?"; ObjectID = "4SB-AS-lmW"; */
+"4SB-AS-lmW.text" = "لا تملك حساب؟";
+
+/* Class = "UIButton"; normalTitle = "    About Us"; ObjectID = "4xa-e5-DC9"; */
+"4xa-e5-DC9.normalTitle" = "معلومات عنا";
+
+/* Class = "UILabel"; text = "Register to our new courses."; ObjectID = "5Lf-b2-att"; */
+"5Lf-b2-att.text" = "سجل في دوراتنا الجديدة.";
+
+/* Class = "UILabel"; text = "Get in touch with us."; ObjectID = "5il-gu-sMt"; */
+"5il-gu-sMt.text" = "ابق على تواصل معنا..";
+
+/* Class = "UILabel"; text = "Events"; ObjectID = "72a-Uj-dmF"; */
+"72a-Uj-dmF.text" = "الأحداث";
+
+/* Class = "UIButton"; normalTitle = "    Career"; ObjectID = "809-Kc-Ut8"; */
+"809-Kc-Ut8.normalTitle" = "    مسار مهني مسار وظيفي";
+
+/* Class = "UILabel"; text = "We are pleased to visit the Nectar Infotel  booth at GITEX 2019 at DUBAI and meet Mr Rajan"; ObjectID = "8yM-yt-aaB"; */
+"8yM-yt-aaB.text" = "يسعدنا زيارة جناح Nectar Infotel في جيتكس 2019 في دبي ونلتقي بالسيد راجان";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "Aj7-9d-azQ"; */
+"Aj7-9d-azQ.text" = "اسم";
+
+/* Class = "UILabel"; text = "Electronic payment gateway"; ObjectID = "AzI-dT-VBT"; */
+"AzI-dT-VBT.text" = "بوابة الدفع الإلكتروني";
+
+/* Class = "UILabel"; text = "Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed"; ObjectID = "B00-FI-3rv"; */
+"B00-FI-3rv.text" = "Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed";
+
+/* Class = "UILabel"; text = "Registration"; ObjectID = "BbZ-fc-094"; */
+"BbZ-fc-094.text" = "التسجيل";
+
+/* Class = "UILabel"; text = "University or Grade"; ObjectID = "C2l-XD-Bl6"; */
+"C2l-XD-Bl6.text" = "الجامعة أو الدرجة";
+
+/* Class = "UILabel"; text = "Article 1"; ObjectID = "D6X-uG-JgE"; */
+"D6X-uG-JgE.text" = "المادة 1";
+
+/* Class = "UIButton"; normalTitle = "Microsoft"; ObjectID = "EEC-sY-6Pi"; */
+"EEC-sY-6Pi.normalTitle" = "مايكروسوفت";
+
+/* Class = "UILabel"; text = "Another ALAMAFAZA villages i am proud of that"; ObjectID = "Ezu-Y0-adI"; */
+"Ezu-Y0-adI.text" = "قرى أخرى بالمفاجأة أنا فخور بذلك";
+
+/* Class = "UITextField"; placeholder = "Email Id"; ObjectID = "F4C-eQ-DAA"; */
+"F4C-eQ-DAA.placeholder" = "عنوان الايميل";
+
+/* Class = "UILabel"; text = "Login to P4B"; ObjectID = "FEM-rf-mnS"; */
+"FEM-rf-mnS.text" = "تسجيل الدخول إلى P4B";
+
+/* Class = "UILabel"; text = "Email Id"; ObjectID = "IeK-No-l8a"; */
+"IeK-No-l8a.text" = "عنوان الايميل";
+
+/* Class = "UILabel"; text = "Remarks"; ObjectID = "ImV-ar-3en"; */
+"ImV-ar-3en.text" = "ملاحظات";
+
+/* Class = "UIButton"; normalTitle = "    Contact Us"; ObjectID = "JH8-Ja-C2r"; */
+"JH8-Ja-C2r.normalTitle" = "    اتصل بنا";
+
+/* Class = "UILabel"; text = "NEWSLETTERS"; ObjectID = "JIR-zD-N9e"; */
+"JIR-zD-N9e.text" = "النشرة الإخبارية";
+
+/* Class = "UIButton"; normalTitle = "    Our Services"; ObjectID = "JS9-ji-Tbv"; */
+"JS9-ji-Tbv.normalTitle" = "    خدماتنا";
+
+/* Class = "UILabel"; text = "Email Id"; ObjectID = "JgN-GQ-Hyo"; */
+"JgN-GQ-Hyo.text" = "عنوان الايميل";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "JwN-Ct-XTl"; */
+"JwN-Ct-XTl.text" = "عنوان";
+
+/* Class = "UILabel"; text = "Events"; ObjectID = "K04-e9-TeV"; */
+"K04-e9-TeV.text" = "الأحداث";
+
+/* Class = "UILabel"; text = "Event 2"; ObjectID = "KPM-tm-r8p"; */
+"KPM-tm-r8p.text" = "الحدث 2";
+
+/* Class = "UILabel"; text = "Register"; ObjectID = "LVv-oX-Zvm"; */
+"LVv-oX-Zvm.text" = "تسجيل";
+
+/* Class = "UILabel"; text = "Event 3"; ObjectID = "MGL-RN-eko"; */
+"MGL-RN-eko.text" = "الحدث 3";
+
+/* Class = "UILabel"; text = "Comments"; ObjectID = "Nbc-BF-mDT"; */
+"Nbc-BF-mDT.text" = "تعليقات";
+
+/* Class = "UIButton"; normalTitle = "Logout"; ObjectID = "OwS-N0-ZQH"; */
+"OwS-N0-ZQH.normalTitle" = "تسجيل خروج";
+
+/* Class = "UILabel"; text = "The event is SITEX SUDAN INFORMATION TECHNOLOGY EXHIBITATION 2019"; ObjectID = "PsT-Bk-YH1"; */
+"PsT-Bk-YH1.text" = "الحدث هو معرض SITEX SUDAN لتكنولوجيا المعلومات 2019";
+
+/* Class = "UIButton"; normalTitle = "IBM"; ObjectID = "Q7D-L3-5me"; */
+"Q7D-L3-5me.normalTitle" = "IBM";
+
+/* Class = "UILabel"; text = "Your Password"; ObjectID = "QFz-Ii-sv0"; */
+"QFz-Ii-sv0.text" = "كلمتك السرية";
+
+/* Class = "UILabel"; text = "City"; ObjectID = "QNo-yU-uzD"; */
+"QNo-yU-uzD.text" = "مدينة";
+
+/* Class = "UILabel"; text = "CEO Name"; ObjectID = "Qgq-03-pYB"; */
+"Qgq-03-pYB.text" = "اسم الرئيس التنفيذي";
+
+/* Class = "UILabel"; text = "Welcome User"; ObjectID = "QhI-QM-BkK"; */
+"QhI-QM-BkK.text" = "مرحبًا بالمستخدم";
+
+/* Class = "UILabel"; text = "ANAB COMPANY (Point Of Sales System)"; ObjectID = "SQN-Im-UvQ"; */
+"SQN-Im-UvQ.text" = "شركة عناب (نظام نقاط البيع)";
+
+/* Class = "UILabel"; text = "Events"; ObjectID = "UEh-nb-Ah3"; */
+"UEh-nb-Ah3.text" = "الأحداث";
+
+/* Class = "UILabel"; text = "or Login with "; ObjectID = "UHv-Tt-4ay"; */
+"UHv-Tt-4ay.text" = "الأحداث ";
+
+/* Class = "UILabel"; text = "On a successful visit from a company  ZEBIAN the CEO Mr. ABOZAR OSMAN (one the best customers for us) at SITEX SUDAN INFORMATION TECHNOLOGY EXHIBITATION 2019"; ObjectID = "UeS-R2-HPv"; */
+"UeS-R2-HPv.text" = "في زيارة ناجحة من شركة ZEBIAN الرئيس التنفيذي السيد ABOZAR OSMAN (أحد أفضل العملاء بالنسبة لنا) في معرض SITEX SUDAN INFORMATION TECHNOLOGY EXHIBITATION 2019";
+
+/* Class = "UIButton"; normalTitle = "    Settings"; ObjectID = "VDm-AM-fmh"; */
+"VDm-AM-fmh.normalTitle" = "    الإعدادات";
+
+/* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "VTk-rD-HGp"; */
+"VTk-rD-HGp.normalTitle" = "إرسال";
+
+/* Class = "UILabel"; text = "Forgot Password?"; ObjectID = "Vm6-p0-5wY"; */
+"Vm6-p0-5wY.text" = "هل نسيت كلمة المرور؟";
+
+/* Class = "UILabel"; text = "Contact Us"; ObjectID = "XOt-bP-xdi"; */
+"XOt-bP-xdi.text" = "اتصل بنا";
+
+/* Class = "UIButton"; normalTitle = "    Events"; ObjectID = "Xca-Dh-JJT"; */
+"Xca-Dh-JJT.normalTitle" = "    الأحداث";
+
+/* Class = "UILabel"; text = "Event 4"; ObjectID = "XoG-Zd-X3a"; */
+"XoG-Zd-X3a.text" = "الحدث 4";
+
+/* Class = "UIButton"; normalTitle = "Read More"; ObjectID = "YEJ-CV-aKQ"; */
+"YEJ-CV-aKQ.normalTitle" = "قراءة المزيد";
+
+/* Class = "UILabel"; text = "Integrated Business System p4berp"; ObjectID = "Ybj-hX-laL"; */
+"Ybj-hX-laL.text" = "نظام الأعمال المتكامل p4berp";
+
+/* Class = "UIButton"; normalTitle = "    Blogs"; ObjectID = "YxI-Qg-8pt"; */
+"YxI-Qg-8pt.normalTitle" = "    المدونات";
+
+/* Class = "UIButton"; normalTitle = "Google"; ObjectID = "ZGO-MN-cA9"; */
+"ZGO-MN-cA9.normalTitle" = "Google";
+
+/* Class = "UILabel"; text = "Course Status"; ObjectID = "ZHs-qr-QMc"; */
+"ZHs-qr-QMc.text" = "حالة الدورة";
+
+/* Class = "UIButton"; normalTitle = "Samsung Electronics"; ObjectID = "bkc-2t-qXW"; */
+"bkc-2t-qXW.normalTitle" = "سامسونج للإلكترونيات";
+
+/* Class = "UILabel"; text = "Web Design"; ObjectID = "ctO-jt-FfC"; */
+"ctO-jt-FfC.text" = "تم تصميم الموقع";
+
+/* Class = "UITextField"; placeholder = "********"; ObjectID = "eKr-9c-2eZ"; */
+"eKr-9c-2eZ.placeholder" = "********";
+
+/* Class = "UIButton"; normalTitle = "    Register for new course"; ObjectID = "eYg-9K-iHg"; */
+"eYg-9K-iHg.normalTitle" = "    سجل لدورة جديدة";
+
+/* Class = "UILabel"; text = "On a successful visit from a company  MOFATIH at SITEX SUDAN INFORMATION TECHNOLOGY EXHIBITATION 2019"; ObjectID = "fF6-g1-VxY"; */
+"fF6-g1-VxY.text" = "في زيارة ناجحة من شركة MOFATIH في معرض SITEX SUDAN TECHNOLOGY TECHNOLOGY 2019";
+
+/* Class = "UILabel"; text = "Bussiness Name"; ObjectID = "fZZ-EX-q2i"; */
+"fZZ-EX-q2i.text" = "الاسم التجاري";
+
+/* Class = "UILabel"; text = "Mobile Number"; ObjectID = "gwu-rT-gXm"; */
+"gwu-rT-gXm.text" = "رقم الهاتف المحمول";
+
+/* Class = "UILabel"; text = "Registration"; ObjectID = "iHi-r2-Gkz"; */
+"iHi-r2-Gkz.text" = "التسجيل";
+
+/* Class = "UILabel"; text = "OUR CLIENTS"; ObjectID = "mHy-YN-DA6"; */
+"mHy-YN-DA6.text" = "عملائنا";
+
+/* Class = "UILabel"; text = "Another image For ANAB COMPANY"; ObjectID = "mf5-Ro-jXR"; */
+"mf5-Ro-jXR.text" = "صورة أخرى لشركة ANAB";
+
+/* Class = "UILabel"; text = "Events"; ObjectID = "msY-VC-0pf"; */
+"msY-VC-0pf.text" = "الأحداث";
+
+/* Class = "UILabel"; text = "Your Email"; ObjectID = "n8n-XP-dKd"; */
+"n8n-XP-dKd.text" = "بريدك الالكتروني";
+
+/* Class = "UIButton"; normalTitle = "    Our Clients"; ObjectID = "nrw-1n-5Og"; */
+"nrw-1n-5Og.normalTitle" = "    عملائنا";
+
+/* Class = "UIButton"; normalTitle = "Adobe"; ObjectID = "oth-Aj-LTN"; */
+"oth-Aj-LTN.normalTitle" = "Adobe";
+
+/* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "tug-MH-dKH"; */
+"tug-MH-dKH.normalTitle" = "إرسال";
+
+/* Class = "UILabel"; text = "Our companions in the computer field\nAnd they have companies that were participating in the exhibition\nMr. MOSTAFA\nMr. Mohamed Hashim"; ObjectID = "v2G-o2-kYc"; */
+"v2G-o2-kYc.text" = "رفاقنا في مجال الكمبيوتر ولديهم شركات شاركت في معرض الأستاذ مصطفى \ n السيد. محمد هاشم";
+
+/* Class = "UILabel"; text = "Mobile Number"; ObjectID = "vQI-h2-zwz"; */
+"vQI-h2-zwz.text" = "رقم الهاتف المحمول";
+
+/* Class = "UILabel"; text = "Can't Login"; ObjectID = "wgH-Zg-JVS"; */
+"wgH-Zg-JVS.text" = "لا يمكن تسجيل الدخول";
+
+/* Class = "UILabel"; text = "Event 1"; ObjectID = "wu7-An-8nS"; */
+"wu7-An-8nS.text" = "حدث 1";

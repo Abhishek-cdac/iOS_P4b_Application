@@ -1,0 +1,39 @@
+/* 
+  Localizable.strings
+  p4b
+
+  Created by Sagar Ranshur on 14/07/20.
+  Copyright © 2020 Sagar Ranshur. All rights reserved.
+*/
+
+"Login to P4B" = "تسجيل الدخول إلى P4B";
+
+"Bussiness Outsourcing" = "الأعمال الخارجية";
+
+"IT" = "تكنولوجيا المعلومات";
+
+"Quality Assurance" = "ضمان الجودة";
+
+"Energy Software Solutions" = "حلول برامج الطاقة";
+
+"HeathCare Solutions" = "حلول HeathCare";
+
+"Article Title 1" = "عنوان المادة 1";
+
+"Article Title 2" = "عنوان المادة 2";
+
+"Article Title 3" = "عنوان المادة 3";
+
+"Article Title 4" = "عنوان المادة 4";
+
+"CANCEL" = "إلغاء";
+
+"OK" = "حسنا";
+
+"Message" = "رسالة";
+
+"Are you want to logout?" = "هل تريد تسجيل الخروج؟";
+
+"Thanks for contacting us,We'll reach you soon!" = "شكرًا لاتصالك بنا ، سنصل إليك قريبًا!";
+
+"Registration Successfull" = "نجاح التسجيل";
