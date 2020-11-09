@@ -21,9 +21,12 @@ class RegisterForCourseVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupView()
+    }
+    
+    func setupView() {
         submitBtn.layer.cornerRadius = 22.5
+        
     }
     
     @IBAction func backBtnClicked(_ sender: UIButton) {

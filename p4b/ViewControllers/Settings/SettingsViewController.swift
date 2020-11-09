@@ -20,6 +20,10 @@ class SettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+//    @IBAction func backBtnClicked(_ sender: UIButton) {
+//        navigationController?.popViewController(animated: true)
+//    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
@@ -34,31 +38,41 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func selectLanguageClicked(_ sender: UIButton) {
-        let data = ["English", "Arabic"]
-        let dropDown = DropDown()
-        dropDown.anchorView = self.selectedBtn // UIView or UIBarButtonItem
-        dropDown.width = self.selectedBtn.frame.size.width
-        dropDown.direction = .top
-        dropDown.bottomOffset = CGPoint.init(x: self.selectedBtn.frame.origin.x, y: self.selectedBtn.frame.origin.y)
         
-        // The list of items to display. Can be changed dynamically
-        dropDown.dataSource = data
-        dropDown.selectionAction = { (index: Int, item: String) in
-            
-            var selectedLangExtnStr = ""
-            var selectedLangStr = ""
-            if index == 0 {
-                selectedLangExtnStr = "en"
-                selectedLangStr = "English"
-            }else {
-                selectedLangExtnStr = "ar"
-                selectedLangStr = "Arabic"
-            }
-            
-            
-            self.restartApplication(extStr: selectedLangExtnStr, langStr: selectedLangStr)
+        let selectLang : SelectLangVC
+        if #available(iOS 13.0, *) {
+              selectLang = Constants.Storyboards.main.instantiateViewController(identifier: "SelectLangVC") as! SelectLangVC
+        } else {
+            // Fallback on earlier versions
+            selectLang = Constants.Storyboards.main.instantiateViewController(withIdentifier: "SelectLangVC") as! SelectLangVC
         }
-        dropDown.show()
+
+        navigationController?.pushViewController(selectLang, animated: true)
+        
+//        let data = ["English", "Arabic"]
+//        let dropDown = DropDown()
+//        dropDown.anchorView = self.selectedBtn // UIView or UIBarButtonItem
+//        dropDown.width = self.selectedBtn.frame.size.width
+//        dropDown.direction = .top
+//        dropDown.bottomOffset = CGPoint.init(x: self.selectedBtn.frame.origin.x, y: self.selectedBtn.frame.origin.y)
+//
+//        // The list of items to display. Can be changed dynamically
+//        dropDown.dataSource = data
+//        dropDown.selectionAction = { (index: Int, item: String) in
+//
+//            var selectedLangExtnStr = ""
+//            var selectedLangStr = ""
+//            if index == 0 {
+//                selectedLangExtnStr = "en"
+//                selectedLangStr = "English"
+//            }else {
+//                selectedLangExtnStr = "ar"
+//                selectedLangStr = "Arabic"
+//            }
+//
+//            self.restartApplication(extStr: selectedLangExtnStr, langStr: selectedLangStr)
+//        }
+//        dropDown.show()
     }
     
     func restartApplication (extStr: String, langStr: String) {
@@ -73,8 +87,6 @@ class SettingsViewController: UIViewController {
         Bundle.setLanguage(extStr)
         
         showAlert(message: "Your app language changed successfully!".localised());
-//        Utility.setUpAlert(isSingle: true, isSuccessAlert: true, title: "Success", message: "Your app language changed successfully!".localised(), image: "success")
-//        Utility.showCustomAlert()
         
     }
     
@@ -86,11 +98,7 @@ class SettingsViewController: UIViewController {
             UIApplication.shared.keyWindow?.rootViewController = storyboard.instantiateInitialViewController()
 
         }
-
             alert.addAction(action);
             self.present(alert, animated: true, completion: nil)
-            
         }
-
-    
 }

@@ -9,12 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var baseView: UIView!
+    @IBOutlet weak var customNavigationBar: UIView!
+    
+    @IBOutlet weak var nameTxtField: CustomTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        baseView.elevate(elevation: 2.0)
+        customNavigationBar.elevate(elevation: 2.0)
     }
-
-
 }
 

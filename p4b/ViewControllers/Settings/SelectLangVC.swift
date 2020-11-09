@@ -10,21 +10,82 @@ import UIKit
 
 class SelectLangVC: UIViewController {
 
+    @IBOutlet weak var uaeRadioImage: UIImageView!
+    @IBOutlet weak var ukRadioImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        if let lang = UserDefaults.standard.value(forKey: Constants.UserDefaults.selectedLanguage) as? String {
+            if lang == "Arabic" {
+                uaeRadioImage.isHighlighted = true
+                ukRadioImage.isHighlighted = false
+            }else {
+                uaeRadioImage.isHighlighted = false
+                ukRadioImage.isHighlighted = true
+            }
+        }
     }
-    */
+    
+    @IBAction func arabicBtnClicked(_ sender: UITapGestureRecognizer) {
+        !uaeRadioImage.isHighlighted ? (uaeRadioImage.isHighlighted = true) : (ukRadioImage.isHighlighted = false)
+        ukRadioImage.isHighlighted = false
+     }
+     
+     @IBAction func englishBtnClicked(_ sender: UITapGestureRecognizer) {
+        
+        !ukRadioImage.isHighlighted ? (ukRadioImage.isHighlighted = true) : (uaeRadioImage.isHighlighted = false)
+        uaeRadioImage.isHighlighted = false
+     }
+    
+    
+    @IBAction func changeLanguageBtnClicked(_ sender: CustomButton) {
+        
+        var selectedLangExtnStr = ""
+        var selectedLangStr = ""
+        if ukRadioImage.isHighlighted  {
+            selectedLangExtnStr = "en"
+            selectedLangStr = "English"
+        }else {
+            selectedLangExtnStr = "ar"
+            selectedLangStr = "Arabic"
+        }
+        
+        self.restartApplication(extStr: selectedLangExtnStr, langStr: selectedLangStr)
+        
+    }
+    
+    func restartApplication (extStr: String, langStr: String) {
+        
+        UserDefaults.standard.set([extStr], forKey: Constants.UserDefaults.applanguages)
+        UserDefaults.standard.synchronize()
+        
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(langStr, forKey: Constants.UserDefaults.selectedLanguage)
+        userDefaults.synchronize()
+        
+        Bundle.setLanguage(extStr)
+        
+        showAlert(message: "Your app language changed successfully!".localised());
+        
+    }
+    
+    func showAlert(message: String) {
+              
+              let alert = UIAlertController.init(title: "Message".localised(), message: message, preferredStyle: .alert)
+          let action = UIAlertAction.init(title: "OK".localised(), style: .cancel) { (action) in
+              let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+              UIApplication.shared.keyWindow?.rootViewController = storyboard.instantiateInitialViewController()
+          }
+              alert.addAction(action);
+              self.present(alert, animated: true, completion: nil)
+        }
 
+    
 }

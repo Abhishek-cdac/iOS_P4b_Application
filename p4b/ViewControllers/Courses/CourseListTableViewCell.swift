@@ -8,8 +8,21 @@
 
 import UIKit
 
+protocol CourseProtocol {
+    func enrollNowBtnClicked()
+}
+
 class CourseListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var courseNameLabel: UILabel!
+    @IBOutlet weak var courseDurationLabel: UILabel!
+    @IBOutlet weak var courseStartDateLabel: UILabel!
+    @IBOutlet weak var teacherName: UILabel!
+    @IBOutlet weak var baseView: UIView!
+    @IBOutlet weak var applicantsLable: UILabel!
+    
+    var delegate: CourseProtocol? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -17,8 +30,15 @@ class CourseListTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
-
+    
+    
+    @IBAction func enrollNowBtnClicked(_ sender: UIButton) {
+        if delegate != nil {
+            delegate?.enrollNowBtnClicked()
+        }
+    }
 }
+
+

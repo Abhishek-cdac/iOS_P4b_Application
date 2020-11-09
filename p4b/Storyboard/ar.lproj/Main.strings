@@ -217,3 +217,108 @@
 
 /* Class = "UILabel"; text = "Event 1"; ObjectID = "wu7-An-8nS"; */
 "wu7-An-8nS.text" = "حدث 1";
+
+/* Class = "UILabel"; text = "Latest News"; ObjectID = "rIq-Ia-r7A"; */
+"rIq-Ia-r7A.text" = "أحدث الأخبار";
+
+/* Class = "UILabel"; text = "Online Courses - See All"; ObjectID = "Bbo-OL-1Ue"; */
+"Bbo-OL-1Ue.text" = "اظهار الكل";
+
+/* Class = "UILabel"; text = "Latest News - See All"; ObjectID = "ugl-39-a6o"; */
+"ugl-39-a6o.text" = "اظهار الكل";
+
+/* Class = "UIButton"; text = "Read More"; ObjectID = "JXU-bP-Zze"; */
+"JXU-bP-Zze.normalTitle" = "اقرأ المزيد>";
+
+/* Class = "UILabel"; text = "Our Projects"; ObjectID = "fE2-Vg-wm9"; */
+"fE2-Vg-wm9.text" = "مشاريعنا";
+
+/* Class = "UIButton"; text = "Know More >"; ObjectID = "dJp-tS-s4U"; */
+"dJp-tS-s4U.normalTitle" = "تعرف على المزيد>";
+
+/* Class = "UILabel"; text = "See All"; ObjectID = "I3D-Ae-wPD"; */
+"I3D-Ae-wPD.text" =  "اظهار الكل";
+
+/* Class = "UILabel"; text = "Our Clients"; ObjectID = "6RZ-oJ-gWc"; */
+"6RZ-oJ-gWc.text" = "عملائنا";
+
+/* Class = "UILabel"; text = "Online Courses"; ObjectID = "dlv-gl-Y51"; */
+"dlv-gl-Y51.text" = "دروس مباشرة على الإنترنت";
+
+"Rdd-kt-oCN.text" = "مجانا";
+
+"Nag-EZ-wu4.normalTitle" = "تسجيل الآن";
+
+"pCc-gY-lDw.text" = "مجانا";
+
+/* Class = "UILabel"; text = "Enroll to Course"; ObjectID = "miv-9P-tly"; */
+"miv-9P-tly.text" = "سجل في الدورة";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "miv-9P-tly"; */
+"VxM-su-egP.placeHolder" = "اسم";
+
+/* Class = "UIButton"; text = "ENROLL NOW"; ObjectID = "qhT-z5-a2r"; */
+"qhT-z5-a2r.normalTitle" = "تسجيل الآن";
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "Unx-UM-CuG"; */
+"Unx-UM-CuG.text" = "لغة";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "y3v-Fw-9jC"; */
+"y3v-Fw-9jC.text" = "الإعدادات";
+
+/* Class = "UILabel"; text = "Our Clients"; ObjectID = "WMM-E4-XeN"; */
+"WMM-E4-XeN.text" = "عملائنا";
+
+/* Class = "UILabel"; text = "Our Services"; ObjectID = "20c-6D-Xj9"; */
+"20c-6D-Xj9.text" = "خدماتنا";
+
+/* Class = "UILabel"; text = "News"; ObjectID = "Xi8-Xs-OfP"; */
+"Xi8-Xs-OfP.text" = "أخبار";
+
+/* Class = "UIButton"; text = "Know More >"; ObjectID = "k0s-g6-4YI"; */
+"k0s-g6-4YI.normalTitle" = "تعرف على المزيد>";
+
+/* Class = "CustomTextField"; text = "Email"; ObjectID = "pJw-gW-uA8"; */
+"pJw-gW-uA8.placeHolder" = "البريد الإلكتروني";
+
+/* Class = "CustomTextField"; text = "Email"; ObjectID = "f9a-2z-NyN"; */
+"f9a-2z-NyN.placeHolder" = "البريد الإلكتروني";
+
+/* Class = "UILabel"; text = "Enable Location Access"; ObjectID = "tl5-fb-nYK"; */
+"tl5-fb-nYK.text" = "تمكين الوصول إلى الموقع";
+
+/* Class = "UILabel"; text = "Enable location access for better app experience"; ObjectID = "OFX-cz-6iF"; */
+"OFX-cz-6iF.text" = "تمكين الوصول إلى الموقع للحصول على تجربة تطبيق أفضل";
+
+/* Class = "UILabel"; text = "Change App Default Language"; ObjectID = "Unx-UM-CuG"; */
+"Unx-UM-CuG.text" = "تغيير اللغة الافتراضية للتطبيق";
+
+/* Class = "UILabel"; text = "Change App Default Language"; ObjectID = "QKY-ND-R6S"; */
+"QKY-ND-R6S.text" = "تغيير اللغة الافتراضية للتطبيق";
+
+/* Class = "UILabel"; text = "Arabic"; ObjectID = "z4c-CG-WsS"; */
+"z4c-CG-WsS.text" = "عربى";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "wFd-6s-sca"; */
+"wFd-6s-sca.text" = "الإنجليزية";
+
+/* Class = "UIButton"; text = "Change Language"; ObjectID = "RvL-1g-in4"; */
+"RvL-1g-in4.normalTitle" = "تغيير اللغة";
+
+/* Class = "UILabel"; text = "FOLLOW US"; ObjectID = "hSX-p1-Oxi"; */
+"hSX-p1-Oxi.text" = "تابعنا";
+
+/* Class = "UILabel"; text = "FOLLOW US"; ObjectID = "80n-JI-p1z"; */
+"80n-JI-p1z.text" = "تابعنا";
+
+
+
+
+
+
+
+
+
+
+
+

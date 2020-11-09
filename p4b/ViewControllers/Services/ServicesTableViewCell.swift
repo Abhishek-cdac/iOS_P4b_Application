@@ -10,6 +10,11 @@ import UIKit
 
 class ServicesTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var baseView: UIView!
+    @IBOutlet weak var integrationImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

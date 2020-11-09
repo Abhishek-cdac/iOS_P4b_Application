@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import KRProgressHUD
+import CoreLocation
 
 
 class Utility: NSObject {
@@ -42,6 +43,20 @@ class Utility: NSObject {
         }
     }
     
+    static func isLocationEnabled() -> Bool {
+        if CLLocationManager.locationServicesEnabled() {
+             switch CLLocationManager.authorizationStatus() {
+                case .notDetermined, .restricted, .denied:
+                    return false
+                case .authorizedAlways, .authorizedWhenInUse:
+                    return true
+                default: return false
+                }
+            } else {
+                return false
+        }
+    }
+    
     static func getCurrentDateTime() -> String
     {
         let currentDate = Date()
@@ -66,6 +81,14 @@ class Utility: NSObject {
 
         return "\(day) \(month) \(year) | \(hours):\(minutes)"
     }
+    
+    static func isValidateEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+
     
     // Email ID Validation
     static func isValidEmail(testStr:String) -> Bool {
@@ -168,7 +191,7 @@ class Utility: NSObject {
     static func startIndicator() {
         KRProgressHUD.show()
     }
-    
+
     static func hideIndicator() {
         KRProgressHUD.dismiss()
     }

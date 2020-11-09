@@ -14,16 +14,15 @@ struct Constants {
     
     struct RequestType
     {
-        static  let  client_detail           = "client_detail?"
+        static  let  dashboard               = "dashboard"
         static  let  login                   = "login?"
-        static  let  projectlist             = "projectlist?"
-        static  let  userlist                = "userlist?"
-        static  let  submittask              = "submittask?"
-        static  let  viewtask                = "viewtask?"
-        static  let  edittask                = "edittask?"
-    }
-    
+        static  let  event                   = "event"
+        static  let  client                  = "client"
+        static  let  register                = "registration"
+        static  let  course                  = "course"
+        static  let  update_profile          = "update_profile"
 
+    }
     
     struct HardcodedData {
         static let monthsArray = ["January", "February","March","April","May","June","July","August","September","October","November","December"]
@@ -31,19 +30,29 @@ struct Constants {
         //screen cgrect details
         static let screenHeight = UIScreen.main.bounds.height
         static let screenWidth = UIScreen.main.bounds.width
+        static let facebookUrl = "https://www.facebook.com/p4bltd/"
+        static let twitterUrl = "https://twitter.com/p4binfo"
+    }
+    
+    struct Course {
+        var title: String
+        var duration: String
+        var startDate: String
+        var teacherName: String
+        var applicants: String
     }
     
     struct HostName
     {
-        static let strnDatuBaseURL    = "http://tarefatracacc.nectarinfotel.com/nDatu_api/public/"
-        static let strDemoBaseURL     = "https://ndatudemo.nectarinfotel.com/nDatu_api/public/";
-        static let strMSDLBaseURL     = "https://ndatu.nectarinfotel.com/nDatu_api/public/";
+        static let localBaseURL    = ""
+        static let uatBaseURL     = "http://p4b.nectarinfotel.com/api/";
+        static let prodBaseURL     = "";
     }
     
     struct HexColors
     {
         static let wfmsBlue = "#292663"
-        static let activeColor = "#292663"
+        static let activeColor = "#0e74bc"
         static let wfmsCyan = "#F16924"
     }
     
@@ -52,14 +61,18 @@ struct Constants {
     }
     
     struct UserDefaults {
-        static let firstTimeUser = "isUserLogin"
+        static let isUserLogin = "isUserLogin"
         static let rememberMeClicked = "rememberMeClicked"
         static let clientNameStr = "ClientName"
         static let userDetails = "UserDetails"
         static let baseUrl     = "BaseUrl"
         static let applanguages = "AppleLanguages"
         static let selectedLanguage = "AppLanguage"
-
+        static let isProfileUpdated = "isProfileUpdated"
+    }
+    
+    struct Notifications {
+        static let loginNotification = "LoginNotification"
     }
     
     struct validationMesages {
@@ -67,7 +80,11 @@ struct Constants {
         static let emptyOrgnizationName = "Please enter orgnization name"
         static let validOrgnizationName = "Please enter valid orgnization name"
 
-        static let emptyUsername        = "Please enter username"
+        static let emptyUsername        = "Please enter name"
+        
+        static let emptyMobile          = "Please enter contact no"
+        static let validateMobile       = "Please enter valid contact no"
+
         static let validateEmailid      = "Please enter valid email id"
         static let emptypassword        = "Please enter password"
 

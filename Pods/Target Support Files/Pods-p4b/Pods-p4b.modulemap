@@ -1,0 +1,6 @@
+framework module Pods_p4b {
+  umbrella header "Pods-p4b-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,24 +7,38 @@
 //
 
 import UIKit
+import WebKit
 
-class WebViewController: UIViewController {
+class WebViewController: UIViewController, WKNavigationDelegate {
 
+    @IBOutlet weak var customNavigationBar: UIView!
+    @IBOutlet weak var webView: WKWebView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    var url = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        webView.navigationDelegate = self
+        activityIndicator.hidesWhenStopped = true
+        setUpView(url: url as NSString)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setUpView(url: NSString)  {
+        
+        customNavigationBar.elevate(elevation: 2.0)
+        activityIndicator.startAnimating();
+        let link = URL(string: url as String)!
+        let request = URLRequest(url: link)
+        webView.load(request)
     }
-    */
-
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        activityIndicator.stopAnimating();
+    }
+    
+    @IBAction func backBtnClicked(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
 }

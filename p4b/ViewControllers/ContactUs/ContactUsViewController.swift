@@ -7,25 +7,23 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ContactUsViewController: UIViewController {
-
-    @IBOutlet weak var emailIdBaseView: UIView!
-    @IBOutlet weak var businessBaseView: UIView!
-    @IBOutlet weak var ceoNameBaseView: UIView!
-    @IBOutlet weak var mobileNumberBaseView: UIView!
-    @IBOutlet weak var addrsBaseView: UIView!
-    @IBOutlet weak var cityBaseView: UIView!
-    @IBOutlet weak var commentsBaseView: UIView!
-    @IBOutlet weak var submitBtn: UIButton!
     
-    @IBOutlet weak var emailIdAddrs: UITextField!
-    @IBOutlet weak var bussnessNameTxt: UITextField!
-    @IBOutlet weak var ceoNameTxt: UITextField!
-    @IBOutlet weak var mobileNoTxt: UITextField!
-    @IBOutlet weak var addrsTxt: UITextView!
-    @IBOutlet weak var cityTxt: UITextField!
-    @IBOutlet weak var commentsTxt: UITextView!
+    @IBOutlet weak var submitBtn: UIButton!
+    @IBOutlet weak var customNavigationBar: UIView!
+    @IBOutlet weak var baseView: UIView!
+    
+    @IBOutlet weak var nameCustomText: CustomTextField!
+    @IBOutlet weak var emailCustomText: CustomTextField!
+    @IBOutlet weak var contactNoCustomText: CustomTextField!
+    @IBOutlet weak var businessNameCustomText: CustomTextField!
+    @IBOutlet weak var cityCustomText: CustomTextField!
+    
+    @IBOutlet weak var addressCustomTextView: CustomTextView!
+    @IBOutlet weak var messageCustomTextView: CustomTextView!
+    let locationManager = CLLocationManager()
     
     
     override func viewDidLoad() {
@@ -35,6 +33,17 @@ class ContactUsViewController: UIViewController {
     
     func setUp () {
         submitBtn.layer.cornerRadius = 20
+        customNavigationBar.elevate(elevation: 2.0)
+        customNavigationBar.elevate(elevation: 2.0)
+        nameCustomText.placeHolder = "Name".localised()
+        emailCustomText.placeHolder = "Email".localised()
+        contactNoCustomText.placeHolder = "Contact No".localised()
+        businessNameCustomText.placeHolder = "Business Name".localised()
+        cityCustomText.placeHolder = "City".localised()
+        addressCustomTextView.placeHolder = "Address".localised()
+        messageCustomTextView.placeHolder = "Message".localised()
+        //        baseView.elevate(elevation: 2.0)
+        
     }
     
     @IBAction func backBtnClicked(_ sender: UIButton) {
@@ -43,39 +52,58 @@ class ContactUsViewController: UIViewController {
     
     @IBAction func submitBtnClicked(_ sender: UIButton) {
         
-//        if emailIdAddrs.text!.isEmpty {
-//            showAlert(message: "Please enter emailID")
-//            return
-//        }else if !isValidEmail(emailIdAddrs.text!) {
-//            showAlert(message: "Please enter valid email Id")
-//            return
-//        }else if bussnessNameTxt.text!.isEmpty {
-//            showAlert(message: "Please enter business name")
-//            return
-//        }else if ceoNameTxt.text!.isEmpty {
-//            showAlert(message: "Please enter CEO Name")
-//            return
-//        }else if mobileNoTxt.text!.isEmpty {
-//            showAlert(message: "Please enter Mobile Number")
-//            return
-//        }else if addrsTxt.text.isEmpty {
-//            showAlert(message: "Please enter address")
-//            return
-//        }else if cityTxt.text!.isEmpty {
-//            showAlert(message: "Please enter City Name")
-//            return
-//        }else if commentsTxt.text.isEmpty {
-//            showAlert(message: "Please enter comments")
-//            return
-//        }
-        
-        let alert = UIAlertController.init(title: "Message".localised(), message: "Thanks for contacting us,We'll reach you soon!".localised(), preferredStyle: .alert)
-        let action = UIAlertAction.init(title: "OK".localised(), style: .default) { (action) in
-            self.navigationController?.popViewController(animated: true)
+        let locStatus = CLLocationManager.authorizationStatus()
+        switch locStatus {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+            return
+        case .denied, .restricted:
+            let alert = UIAlertController(title: "Location Services are disabled".localised(), message: "Please enable Location Services in your Settings".localised(), preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK".localised(), style: .default, handler: nil)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+            return
+        case .authorizedAlways, .authorizedWhenInUse:
+            
+            let alert = UIAlertController.init(title: "Message".localised(), message: "Thanks for contacting us,We'll reach you soon!".localised(), preferredStyle: .alert)
+            let action = UIAlertAction.init(title: "OK".localised(), style: .default) { (action) in
+                self.navigationController?.popViewController(animated: true)
+            }
+            alert.addAction(action);
+            self.present(alert, animated: true, completion: nil)
+            
+            break
+        @unknown default:
+            fatalError()
         }
-        alert.addAction(action);
-        self.present(alert, animated: true, completion: nil)
         
+        //        if emailIdAddrs.text!.isEmpty {
+        //            showAlert(message: "Please enter emailID")
+        //            return
+        //        }else if !isValidEmail(emailIdAddrs.text!) {
+        //            showAlert(message: "Please enter valid email Id")
+        //            return
+        //        }else if bussnessNameTxt.text!.isEmpty {
+        //            showAlert(message: "Please enter business name")
+        //            return
+        //        }else if ceoNameTxt.text!.isEmpty {
+        //            showAlert(message: "Please enter CEO Name")
+        //            return
+        //        }else if mobileNoTxt.text!.isEmpty {
+        //            showAlert(message: "Please enter Mobile Number")
+        //            return
+        //        }else if addrsTxt.text.isEmpty {
+        //            showAlert(message: "Please enter address")
+        //            return
+        //        }else if cityTxt.text!.isEmpty {
+        //            showAlert(message: "Please enter City Name")
+        //            return
+        //        }else if commentsTxt.text.isEmpty {
+        //            showAlert(message: "Please enter comments")
+        //            return
+        //        }
+        
+       
     }
     
     func showAlert(message: String) {
@@ -89,9 +117,9 @@ class ContactUsViewController: UIViewController {
     
     func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-
+        
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
     }
-
+    
 }

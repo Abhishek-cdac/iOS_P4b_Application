@@ -8,12 +8,10 @@
 
 import UIKit
 
-import UIKit
-
 enum ServerType: Int {
-    case nDatu
-    case Demo
-    case MSDL
+    case local
+    case uat
+    case prod
 }
 
 
@@ -29,9 +27,9 @@ class Singleton: NSObject {
     
     static let sharedManager = Singleton()
     
-    var nDatuHostName: String = ""
-    var nDatuDemoHostName: String = ""
-    var nDatuMSDLHostName: String = ""
+    var hostName: String = ""
+    var uatHostName: String = ""
+    var prodHostName: String = ""
 
     var authKey: String = ""
     var clientName: String = ""
@@ -45,7 +43,7 @@ class Singleton: NSObject {
     override init()
     {
         super.init()
-//        selectedEnviornment = selectServerType(serverType: .UAT)
+        selectedEnviornment = selectServerType(serverType: .uat)
     }
     
     
@@ -54,17 +52,19 @@ class Singleton: NSObject {
         switch serverType
         {
             
-        case .nDatu:
-            nDatuHostName = Constants.HostName.strnDatuBaseURL
-            return nDatuHostName
+        case .local:
+            hostName = Constants.HostName.localBaseURL
+            return hostName
             
-        case .Demo:
-            nDatuHostName = Constants.HostName.strDemoBaseURL
-            return nDatuHostName
+        case .uat:
+            hostName = Constants.HostName.uatBaseURL
+            return hostName
             
-        case .MSDL:
-            nDatuMSDLHostName = Constants.HostName.strMSDLBaseURL
-            return nDatuMSDLHostName
+        case .prod:
+            hostName = Constants.HostName.prodBaseURL
+            return hostName
+            
+        default: return hostName
 
         }
     }

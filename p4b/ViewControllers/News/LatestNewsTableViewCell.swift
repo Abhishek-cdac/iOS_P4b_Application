@@ -9,6 +9,12 @@
 import UIKit
 
 class LatestNewsTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var baseView: UIView!
+    @IBOutlet weak var eventImage: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var titlelabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

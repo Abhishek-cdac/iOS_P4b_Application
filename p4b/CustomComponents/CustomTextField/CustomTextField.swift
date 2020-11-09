@@ -15,23 +15,32 @@ class CustomTextField: UIView, UITextFieldDelegate {
     @IBOutlet weak var placeHolderLabel: UILabel!
     @IBOutlet weak var underlineView: UIView!
     @IBOutlet weak var errorMsg: UILabel!
+    @IBOutlet weak var baseWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var baseHeightView: NSLayoutConstraint!
     
     @IBInspectable var placeHolder: String = "" {
         didSet {
-            self.textField.placeholder = placeHolder.localised()
+            
+            self.textField.placeholder = NSLocalizedString(placeHolder, comment:"");
+
+//            #if TARGET_INTERFACE_BUILDER
+//            var bundle = NSBundle(forClass: type(of: self))
+//                self.textField.placeholder = bundle.localizedStringForKey(placeHolder, value:"", table: nil)
+//            #else
+//                self.textField.placeholder = NSLocalizedString(placeHolder, comment:"");
+//            #endif
+            
         }
     }
         
-    @IBInspectable var activeColor : UIColor = .black {
+    @IBInspectable var activeColor : CGColor = UIColor.lightGray.cgColor {
         didSet {
-            self.placeHolderLabel.textColor = activeColor
-            self.textField.textColor = activeColor
+            underlineView.layer.borderColor = activeColor
         }
     }
     
     var selectionColor : UIColor?
     var underlineColor : UIColor?
-    var errorColor : UIColor?
     var isMobile : Bool = false
     var extensionStr : String = ""
     
@@ -64,7 +73,8 @@ class CustomTextField: UIView, UITextFieldDelegate {
     func customSetUp() {
     
         placeHolderLabel.text = ""
-        underlineView.backgroundColor = activeColor
+        underlineView.backgroundColor = UIColor.white
+        baseWidthConstraint.constant = 0
         textField.placeholder = placeHolder
         textField.delegate = self
         hideErrorMessage()
@@ -75,10 +85,10 @@ class CustomTextField: UIView, UITextFieldDelegate {
     func changeTextProperties() {
         
         placeHolderLabel.text = NSLocalizedString(placeHolder, comment: "")
-//        placeHolderLabel.text = placeHolder
-        placeHolderLabel.textColor = activeColor
-        underlineView.backgroundColor = activeColor
-        textField.textColor = activeColor
+        underlineView.backgroundColor = UIColor.white
+        baseWidthConstraint.constant = placeHolderLabel.getLabelWidth()
+        underlineView.layer.borderColor = UIColor.init(hexString: Constants.HexColors.activeColor).cgColor
+        placeHolderLabel.textColor = .black
         hideErrorMessage()
     }
     
@@ -87,8 +97,10 @@ class CustomTextField: UIView, UITextFieldDelegate {
             textField.text = ""
         }
         placeHolderLabel.text = ""
-        underlineView.backgroundColor = activeColor
-        textField.textColor = activeColor
+        underlineView.backgroundColor = UIColor.white
+        baseWidthConstraint.constant = 0
+        underlineView.layer.borderColor = activeColor
+
         textField.placeholder = placeHolder
         hideErrorMessage()
     }
@@ -99,6 +111,10 @@ class CustomTextField: UIView, UITextFieldDelegate {
     func showErrorMessage(errorMessage : String) {
         errorMsg.textColor = .red
         errorMsg.text = errorMessage
+        placeHolderLabel.text = placeHolder
+        placeHolderLabel.textColor = .lightGray
+        baseWidthConstraint.constant = placeHolderLabel.getLabelWidth()
+        underlineView.layer.borderColor = UIColor.red.cgColor
     }
     
     func hideErrorMessage() {
@@ -135,7 +151,9 @@ class CustomTextField: UIView, UITextFieldDelegate {
                 if textField.text?.count == 5 {
                     return false
                 }
-            }            
+            }else if textField.text!.count >= 14 {
+                return false
+            }
             let aSet = NSCharacterSet(charactersIn:"0123456789").inverted
             let compSepByCharInSet = string.components(separatedBy: aSet)
             let numberFiltered = compSepByCharInSet.joined(separator: "")

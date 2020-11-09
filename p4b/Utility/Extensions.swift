@@ -10,6 +10,15 @@ import Foundation
 import UIKit
 import MaterialComponents
 
+extension UILabel { 
+    func getLabelWidth() -> CGFloat {
+        
+        var rect: CGRect = self.frame //get frame of label
+        rect.size = (self.text?.size(withAttributes: [NSAttributedString.Key.font: UIFont(name: self.font.fontName , size: self.font.pointSize)!]))! //Calculate as per label font
+        return rect.width + 10.0 // set width to Constraint outlet
+    }
+}
+
 extension Date {
     func toString(withFormat format: String) -> String {
         let dateFormatter = DateFormatter()
@@ -274,6 +283,14 @@ extension UIViewController {
     {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
+    
+    func showAlert(title: String, message: String, vc: UIViewController) {
+        let alerta = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let acaoCancelar = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+
+        alerta.addAction(acaoCancelar)
+        vc.present(alerta, animated: true)
+     }
     
     open func toucheArround(){
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
@@ -577,6 +594,11 @@ extension String {
     func localised() -> String{
         return NSLocalizedString(self, comment: "")
     }
+    
+    var localized: String {
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
+    }
+    
     
     func getDomain() -> String? {
         guard let url = URL(string: self) else { return nil }

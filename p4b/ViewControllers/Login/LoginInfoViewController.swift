@@ -10,21 +10,47 @@ import UIKit
 
 class LoginInfoViewController: UIViewController {
 
+    var isFromDashboard = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func loginBtnClicked(_ sender: CustomButton) {
+        
+        let loginVC : LoginViewController
+        
+        if #available(iOS 13.0, *) {
+            loginVC = Constants.Storyboards.main.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+        } else {
+            // Fallback on earlier versions
+            loginVC = Constants.Storyboards.main.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        }
+        loginVC.isFromDashboard = true
+        self.navigationController?.pushViewController(loginVC, animated: true)
     }
-    */
-
+    
+    @IBAction func registerBtnClicked(_ sender: UIButton) {
+        
+        let loginVC : SignUpViewController
+        
+        if #available(iOS 13.0, *) {
+            loginVC = Constants.Storyboards.main.instantiateViewController(identifier: "SignUpViewController") as! SignUpViewController
+        } else {
+            // Fallback on earlier versions
+            loginVC = Constants.Storyboards.main.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        }
+        
+        loginVC.isFromDashboard = true
+        self.navigationController?.pushViewController(loginVC, animated: true)
+    }
+    
+    @IBAction func facebookBtnClicked(_ sender: UITapGestureRecognizer) {
+    }
+    
+    @IBAction func googleBtnClicked(_ sender: UITapGestureRecognizer) {
+    }
+    
 }

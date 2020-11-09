@@ -21,7 +21,7 @@ struct WebService {
     
     static func requestServiceWithPostMethod(url: String,requestType: String,completionHadler: @escaping (Data?,Error?) -> Swift.Void) {
                  
-        let urlStr = Constants.singleton.selectedEnviornment + requestType + url
+        let urlStr = url + requestType
         
         let encodedUrl = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
@@ -41,9 +41,31 @@ struct WebService {
         
     }
     
+    static func requestServiceWithParametersPostMethod(url: String,requestType: String,parameters: [String: Any], completionHadler: @escaping (Data?,Error?) -> Swift.Void) {
+                 
+        let urlStr = url + requestType
+        
+        let encodedUrl = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
+        Utility.printLog(key: "Request", value: encodedUrl)
+
+        Alamofire.request(encodedUrl!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseString { (response) in
+            
+            if let error = response.error {
+                completionHadler(nil,error)
+                return
+            }
+            if let success = response.data {
+                completionHadler(success,nil)
+                return
+            }
+        }
+        
+    }
+    
     static func requestServiceWithGetMethod(url: String,requestType: String,completionHadler: @escaping (Data?,Error?) -> Swift.Void) {
         
-        let urlStr = Constants.singleton.selectedEnviornment + requestType + url
+        let urlStr = Constants.singleton.hostName + requestType + url
         
         Alamofire.request(urlStr).responseString { (response) in
 

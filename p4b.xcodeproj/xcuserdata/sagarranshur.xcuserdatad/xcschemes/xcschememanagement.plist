@@ -7,7 +7,25 @@
 		<key>p4b.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>19</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>7B4E081624B82B380086D6E8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7B4E082C24B82B3A0086D6E8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7B4E083724B82B3A0086D6E8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

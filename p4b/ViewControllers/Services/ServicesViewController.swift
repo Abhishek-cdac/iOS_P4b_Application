@@ -10,21 +10,44 @@ import UIKit
 
 class ServicesViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var customNavigationBar: UIView!
+    @IBOutlet weak var servicesTableView: UITableView!
+    
+    var ourServicesArray = [Service]()
+    struct Service {
+        var image: String?
+        var name: String?
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        customNavigationBar.elevate(elevation: 2.0)
+        ourServicesArray = [Service.init(image: "integration", name: "P4BERP - Integrated Business System".localised()), Service.init(image: "paymentGateway", name: "Online Payment Gateway".localised()), Service.init(image: "webDesign", name: "Web Design".localised())];
+        servicesTableView.reloadData()
     }
-    */
+    
+    @IBAction func backBtnClicked(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+}
 
+extension ServicesViewController : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ourServicesArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ServicesTableViewCell
+        
+        cell.baseView.elevate(elevation: 2.0)
+        let serviceObj = ourServicesArray[indexPath.row]
+        cell.integrationImage.image = UIImage.init(named: serviceObj.image!)
+        cell.titleLabel.text = serviceObj.name
+        
+        return cell;
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150;
+    }
 }
