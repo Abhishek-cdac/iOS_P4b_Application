@@ -46,8 +46,9 @@ class DashboardVC: UIViewController {
     @IBOutlet weak var noDataFoundEventsLable: UILabel!
     @IBOutlet weak var noDataFoundProjectsLable: UILabel!
     @IBOutlet weak var noDataFoundClientsLable: UILabel!
-
-
+    
+    
+    @IBOutlet weak var scrollViewDashboard: UIScrollView!
     var isClientsExpanded = false
     var isServicesExpanded = false
     var isEventsExpanded = false
@@ -60,19 +61,19 @@ class DashboardVC: UIViewController {
     var width = 0.0
     var promotionalBanner = [promotion]()
     var coursesArray = [CourseModel]()
-    var eventsArray = [EventsModel]()
+    var eventsArray = [NewsModel]()
     var projectsArray = [ProjectsModel]()
     var clientsArray = [ClientModel]()
-
     
-//    var clientsArray = ["anab", "aryam", "baaboud", "babelhara", "baydmont", "brand","danfodo","elbsmala","HEALTH","Lumara","Mafath","msabeh","yagot"]
+    
+    //    var clientsArray = ["anab", "aryam", "baaboud", "babelhara", "baydmont", "brand","danfodo","elbsmala","HEALTH","Lumara","Mafath","msabeh","yagot"]
     
     @IBOutlet weak var eventBaseView: UIView!
     @IBOutlet weak var eventHeightConstraint: NSLayoutConstraint!
     
     var counter = 0
     
-    var sideMenuOptionsArray = [["Online Courses".localised(),"Latest News".localised(),"Our Services".localised(),"Our Projects".localised(), "Our Clients".localised(), "Contact Us".localised(), "About Us".localised(), "Settings".localised()],
+    var sideMenuOptionsArray = [["Online Courses".localised(),"Latest News".localised(),"Our Services".localised(),"Our Projects".localised(), "Our Clients".localised(), "Contact Us".localised(), "Settings".localised()],
                                 ["Register".localised(), "Login".localised()],
     ]
     
@@ -103,7 +104,7 @@ class DashboardVC: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.loginNotification(_:)), name: NSNotification.Name(rawValue: Constants.Notifications.loginNotification), object: nil)
-
+        
         getDashboardDetailsAPI()
         loginHandler()
     }
@@ -111,11 +112,11 @@ class DashboardVC: UIViewController {
     @objc func loginNotification(_ notification: NSNotification) {
         loginHandler()
     }
-
-
+    
     func setUpView()  {
         //handle login/logout button clicked
         
+        addBottomCompanyLogo(scroll: scrollViewDashboard)
         hideSideMenu()
         height = Double(collectionView.frame.size.height)
         width = Double(collectionView.frame.size.width)
@@ -124,30 +125,30 @@ class DashboardVC: UIViewController {
         
         promotionalBanner = [
             promotion.init(image: "promotion1", category: "".localised()),
-            //            promotion.init(image: "promotion2", category: "IT".localised()),
-            //            promotion.init(image: "promotion3", category: "Quality Assurance".localised()),
-            //            promotion.init(image: "promotion4", category: "Energy Software Solutions".localised()),
-            //            promotion.init(image: "promotion5", category: "HeathCare Solutions".localised()),
+//            promotion.init(image: "promotion2", category: "IT".localised()),
+//            promotion.init(image: "promotion3", category: "Quality Assurance".localised()),
+//            promotion.init(image: "promotion4", category: "Energy Software Solutions".localised()),
+//            promotion.init(image: "promotion5", category: "HeathCare Solutions".localised()),
         ]
         
-//        coursesArray = [
-//            Constants.Course.init(title: "Web Design".localised(), duration: "90 days".localised(), startDate: "08/08/2020", teacherName: "Shami Ahmed", applicants: "774"),
-//            Constants.Course.init(title: "App Development".localised(), duration: "150 days".localised(), startDate: "02/08/2020", teacherName: "Zamil Sheik", applicants: "316"),
-//        ];
-//        eventsArray = [
-//            Event.init(image: "event9", date: "2020/07/12", title: "Visit the GITEX exhibition".localised()),
-//            Event.init(image: "event10", date: "2020/05/12", title: "Participation in the CITEX 2020 exhibition".localised()),
-            
-            //            Event.init(image: "event1", date: "2019/05/22", title: "ANAB COMPANY (Point Of Sales System) Visit"),
-            //            Event.init(image: "event2", date: "2019/05/22", title: "ANAB COMPANY (Point Of Sales System) Visit"),
-            //            Event.init(image: "event6", date: "2019/06/12", title: "Visit the SITEX exhibition 2019"),
-            //            Event.init(image: "event5", date: "2019/06/12", title: "Visit the SITEX exhibition 2019"),
-            //            Event.init(image: "event4", date: "2019/05/12", title: "Visit the SITEX exhibition 2019"),
-            //            Event.init(image: "event7", date: "2019/05/12", title: "Visit the SITEX exhibition 2019"),
-            //            Event.init(image: "event3", date: "2019/08/13", title: "GITEX 2019 event at Dubai"),
-            //            Event.init(image: "event8", date: "2019/01/09", title: "Another ALAMAFAZA villages i am proud of that"),
-            
-//        ];
+        //        coursesArray = [
+        //            Constants.Course.init(title: "Web Design".localised(), duration: "90 days".localised(), startDate: "08/08/2020", teacherName: "Shami Ahmed", applicants: "774"),
+        //            Constants.Course.init(title: "App Development".localised(), duration: "150 days".localised(), startDate: "02/08/2020", teacherName: "Zamil Sheik", applicants: "316"),
+        //        ];
+        //        eventsArray = [
+        //            Event.init(image: "event9", date: "2020/07/12", title: "Visit the GITEX exhibition".localised()),
+        //            Event.init(image: "event10", date: "2020/05/12", title: "Participation in the CITEX 2020 exhibition".localised()),
+        
+        //            Event.init(image: "event1", date: "2019/05/22", title: "ANAB COMPANY (Point Of Sales System) Visit"),
+        //            Event.init(image: "event2", date: "2019/05/22", title: "ANAB COMPANY (Point Of Sales System) Visit"),
+        //            Event.init(image: "event6", date: "2019/06/12", title: "Visit the SITEX exhibition 2019"),
+        //            Event.init(image: "event5", date: "2019/06/12", title: "Visit the SITEX exhibition 2019"),
+        //            Event.init(image: "event4", date: "2019/05/12", title: "Visit the SITEX exhibition 2019"),
+        //            Event.init(image: "event7", date: "2019/05/12", title: "Visit the SITEX exhibition 2019"),
+        //            Event.init(image: "event3", date: "2019/08/13", title: "GITEX 2019 event at Dubai"),
+        //            Event.init(image: "event8", date: "2019/01/09", title: "Another ALAMAFAZA villages i am proud of that"),
+        
+        //        ];
         
         
         Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(moveToNextPage), userInfo: nil, repeats: true)
@@ -228,11 +229,11 @@ class DashboardVC: UIViewController {
                 userNameLabel.text = "Welcome Guest".localised()
             }
             
-            sideMenuOptionsArray = [["Online Courses".localised(),"Latest News".localised(),"Our Services".localised(),"Our Projects".localised(), "Our Clients".localised(), "Contact Us".localised(), "About Us".localised(), "Settings".localised()],["Logout".localised()],
+            sideMenuOptionsArray = [["Online Courses".localised(),"Latest News".localised(),"Our Services".localised(),"Our Projects".localised(), "Our Clients".localised(), "Contact Us".localised(), "Settings".localised()],["Logout".localised()],
             ]
         }else {
             userNameLabel.text = "Welcome Guest".localised()
-            sideMenuOptionsArray = [["Online Courses".localised(),"Latest News".localised(),"Our Services".localised(),"Our Projects".localised(), "Our Clients".localised(), "Contact Us".localised(), "About Us".localised(), "Settings".localised()],["Register".localised(),"Login".localised()]]
+            sideMenuOptionsArray = [["Online Courses".localised(),"Latest News".localised(),"Our Services".localised(),"Our Projects".localised(), "Our Clients".localised(), "Contact Us".localised(), "Settings".localised()],["Register".localised(),"Login".localised()]]
         }
         sideMenuOptionsTableView.reloadData()
     }
@@ -248,7 +249,7 @@ class DashboardVC: UIViewController {
     func getDashboardDetailsAPI()  {
         
         Utility.startIndicator()
-    
+        
         WebService.requestServiceWithPostMethod(url: Constants.singleton.hostName, requestType: Constants.RequestType.dashboard) { (data, error) in
             
             do {
@@ -282,7 +283,7 @@ class DashboardVC: UIViewController {
     //MARK: -
     
     func getData(objectModel: DashboardObject) {
-        self.eventsArray = objectModel.event_data as! [EventsModel]
+        self.eventsArray = objectModel.news_data as! [NewsModel]
         self.projectsArray = objectModel.project_data as! [ProjectsModel]
         self.clientsArray = objectModel.client_data as! [ClientModel]
         self.coursesArray = objectModel.course_data as! [CourseModel]
@@ -429,7 +430,7 @@ class DashboardVC: UIViewController {
         }
         
         
-//        courseListVC.coursesArray = coursesArray
+        //        courseListVC.coursesArray = coursesArray
         navigationController?.pushViewController(courseListVC, animated: true)
     }
     
@@ -554,7 +555,6 @@ class DashboardVC: UIViewController {
             courseListVC = Constants.Storyboards.main.instantiateViewController(withIdentifier: "CourseListingViewController") as! CourseListingViewController
         }
         
-//        courseListVC.coursesArray = coursesArray
         navigationController?.pushViewController(courseListVC, animated: true)
     }
     @IBAction func seeAllLatestNewsTapHandler(_ sender: UITapGestureRecognizer) {
@@ -568,11 +568,31 @@ class DashboardVC: UIViewController {
             courseListVC = Constants.Storyboards.main.instantiateViewController(withIdentifier: "LatestNewsViewController") as! LatestNewsViewController
         }
         
-        //        courseListVC.eventsArray = eventsArray
+        
+        courseListVC.lblTitle = "News".localised()
+        courseListVC.selectedValueForTable = "news".localised()
         navigationController?.pushViewController(courseListVC, animated: true)
         
     }
+    //For ALL Projects
     @IBAction func seeAllProjectsTapHandler(_ sender: UITapGestureRecognizer) {
+        
+        let courseListVC : LatestNewsViewController
+        
+        if #available(iOS 13.0, *) {
+            courseListVC = Constants.Storyboards.main.instantiateViewController(identifier: "LatestNewsViewController") as! LatestNewsViewController
+        } else {
+            // Fallback on earlier versions
+            courseListVC = Constants.Storyboards.main.instantiateViewController(withIdentifier: "LatestNewsViewController") as! LatestNewsViewController
+        }
+        
+        //        courseListVC.eventsArray = eventsArray
+        
+        courseListVC.lblTitle = "Our Projects".localised()
+        courseListVC.selectedValueForTable = "project".localised()
+        courseListVC.projectsArray = projectsArray
+        navigationController?.pushViewController(courseListVC, animated: true)
+        
     }
     
 }
@@ -629,8 +649,8 @@ extension DashboardVC: UICollectionViewDelegate,UICollectionViewDataSource  {
             
             let eventsObj = eventsArray[indexPath.row]
             cell.eventImage.downloaded(from: eventsObj.image, contentMode: .scaleToFill)
-            cell.dateLabel.text = eventsObj.event_date
-            cell.titleLabel.text = eventsObj.details
+            cell.dateLabel.text = eventsObj.published_on
+            cell.titleLabel.text = eventsObj.heading
             cell.baseView.elevate(elevation: 2.0)
             return cell
             
@@ -646,9 +666,9 @@ extension DashboardVC: UICollectionViewDelegate,UICollectionViewDataSource  {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PromotiosCell
             cell.image.image = UIImage.init(named: "promotion1")
-            //            let promotionObject = promotionalBanner[indexPath.row]
-            //            cell.image.image = UIImage.init(named: promotionObject.image)
-            //            cell.categoryLabel.text = promotionObject.category
+//                         let promotionObject = promotionalBanner[indexPath.row]
+//                        cell.image.image = UIImage.init(named: promotionObject.image)
+//                        cell.categoryLabel.text = promotionObject.category
             return cell
         }else {
             let cell = UICollectionViewCell()
@@ -700,7 +720,8 @@ extension DashboardVC: UITableViewDelegate,UITableViewDataSource {
         cell.textLabel?.text = sideMenuOptionsArray[indexPath.section][indexPath.row]
         return cell
     }
-
+    
+    //MARK: FOR SIDE MENU LIST VIEW CONTROLLER
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             let selectedValue = sideMenuOptionsArray[indexPath.section][indexPath.row]
@@ -715,7 +736,7 @@ extension DashboardVC: UITableViewDelegate,UITableViewDataSource {
                     courseListVC = Constants.Storyboards.main.instantiateViewController(withIdentifier: "CourseListingViewController") as! CourseListingViewController
                 }
                 
-//                courseListVC.coursesArray = coursesArray
+                //                courseListVC.coursesArray = coursesArray
                 navigationController?.pushViewController(courseListVC, animated: true)
                 
             case "Latest News".localised():
@@ -727,6 +748,10 @@ extension DashboardVC: UITableViewDelegate,UITableViewDataSource {
                     // Fallback on earlier versions
                     courseListVC = Constants.Storyboards.main.instantiateViewController(withIdentifier: "LatestNewsViewController") as! LatestNewsViewController
                 }
+                
+                courseListVC.lblTitle = "News".localised()
+                courseListVC.selectedValueForTable = "news".localised()
+                
                 navigationController?.pushViewController(courseListVC, animated: true)
                 
             case "Settings".localised():
@@ -752,6 +777,22 @@ extension DashboardVC: UITableViewDelegate,UITableViewDataSource {
                 }
                 
                 navigationController?.pushViewController(contactUsVC, animated: true)
+                
+                
+            case "Our Projects".localised():
+                
+                let projectsVC : LatestNewsViewController
+                
+                if #available(iOS 13.0, *) {
+                    projectsVC = Constants.Storyboards.main.instantiateViewController(identifier: "LatestNewsViewController") as! LatestNewsViewController
+                } else {
+                    // Fallback on earlier versions
+                    projectsVC = Constants.Storyboards.main.instantiateViewController(withIdentifier: "LatestNewsViewController") as! LatestNewsViewController
+                }
+                projectsVC.lblTitle = "Our Projects".localised()
+                projectsVC.selectedValueForTable = "project".localised()
+                projectsVC.projectsArray = projectsArray
+                navigationController?.pushViewController(projectsVC, animated: true)
                 
             case "Our Clients".localised():
                 
@@ -856,7 +897,7 @@ class DashboardObject: Mappable {
         news_data <- map["news_data"]
         client_data <- map["client_data"]
         project_data <- map["project_data"]
-        event_data <- map["event_data"]
+        event_data <- map["news_data"]
         course_data <- map["course_data"]
     }
 }
@@ -868,6 +909,7 @@ class NewsModel: Mappable {
     var published_on: String = ""
     var image: String = ""
     
+    
     required init?(map: Map) {}
     
     func mapping(map: Map) {
@@ -876,6 +918,7 @@ class NewsModel: Mappable {
         details <- map["details"]
         published_on <- map["published_on"]
         image <- map["image"]
+        
     }
 }
 

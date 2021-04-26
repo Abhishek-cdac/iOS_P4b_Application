@@ -298,7 +298,44 @@ extension UIViewController {
         view.addGestureRecognizer(tap)
         
     }
-}
+    
+    //MARK: Show Default Navigation Bar With Logo
+    func showDefaultNavigationBarWithLogoImage(){
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        let logo = UIImage(named: "sd")
+        let imageView = UIImageView(image:logo)
+        imageView.contentMode = .scaleAspectFit
+        self.navigationItem.titleView = imageView
+        
+    }
+    
+    func addBottomCompanyLogo(scroll: UIScrollView){
+        let poweredByLabel = UILabel()
+        let theHeight = scroll.frame.size.height
+        let theWidth = poweredByLabel.frame.size.width
+        let nextBar = UIImageView()
+        nextBar.backgroundColor = .white
+        nextBar.image = UIImage(named: "p4bIcon_black")
+        poweredByLabel.text = "Powered By"
+        poweredByLabel.font = UIFont(name: "HelveticaNeue-Regular", size: 8.0)
+        poweredByLabel.textColor = .darkGray
+        poweredByLabel.textAlignment = .left
+        nextBar.frame = CGRect(x: theWidth + 155 , y: theHeight  , width: 200, height: 30)
+        poweredByLabel.frame = CGRect(x: 60, y: theHeight  , width: 200, height: 30)
+        nextBar.contentMode = .scaleAspectFit
+        scroll.addSubview(nextBar)
+        scroll.addSubview(poweredByLabel)
+    }
+
+    
+    
+     }
 
 extension UIApplication {
     class func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {

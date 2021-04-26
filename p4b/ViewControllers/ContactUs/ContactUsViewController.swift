@@ -14,13 +14,11 @@ class ContactUsViewController: UIViewController {
     @IBOutlet weak var submitBtn: UIButton!
     @IBOutlet weak var customNavigationBar: UIView!
     @IBOutlet weak var baseView: UIView!
-    
     @IBOutlet weak var nameCustomText: CustomTextField!
     @IBOutlet weak var emailCustomText: CustomTextField!
     @IBOutlet weak var contactNoCustomText: CustomTextField!
     @IBOutlet weak var businessNameCustomText: CustomTextField!
     @IBOutlet weak var cityCustomText: CustomTextField!
-    
     @IBOutlet weak var addressCustomTextView: CustomTextView!
     @IBOutlet weak var messageCustomTextView: CustomTextView!
     let locationManager = CLLocationManager()

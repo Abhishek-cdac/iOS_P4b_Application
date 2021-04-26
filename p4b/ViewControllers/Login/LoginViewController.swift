@@ -14,8 +14,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTxt: CustomTextField!
     @IBOutlet weak var emailIdTxt: CustomTextField!
     @IBOutlet weak var loginBtn: UIButton!
-        
+    
+    @IBOutlet weak var imgRememberMe: UIImageView!
+    @IBOutlet weak var lblRememberMe: UILabel!
+    
     var isFromDashboard = false
+    var isChecked = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +32,33 @@ class LoginViewController: UIViewController {
     }
     
     func setUp() {
+        handleGestureForRememberMe()
         emailIdTxt.layer.cornerRadius = 20;
         passwordTxt.layer.cornerRadius = 20;
         loginBtn.layer.cornerRadius = 20;
-        emailIdTxt.textField.text = "admin@gmail.com";
-        passwordTxt.textField.text = "admin@demo";
+//        emailIdTxt.textField.text = "admin@gmail.com";
+//        passwordTxt.textField.text = "admin@demo";
+        passwordTxt.textField.isSecureTextEntry = true
+    }
+    
+    func handleGestureForRememberMe(){
+        let tapMenu = UITapGestureRecognizer(target: self, action: #selector(addGetsureForImage))
+        let tapMenu2 = UITapGestureRecognizer(target: self, action: #selector(addGetsureForImage))
+        
+        self.imgRememberMe.isUserInteractionEnabled = true
+        self.lblRememberMe.isUserInteractionEnabled = true
+        self.imgRememberMe.addGestureRecognizer(tapMenu)
+        self.lblRememberMe.addGestureRecognizer(tapMenu2)
+    }
+    
+    @objc func addGetsureForImage(){
+        if isChecked{
+            self.imgRememberMe.image = UIImage(named: "unselected_checkbox")
+            isChecked = false
+        }else{
+            self.imgRememberMe.image = UIImage(named: "checkbox_selected")
+            isChecked = true
+        }
     }
     
     func loginAPICall() {
@@ -45,7 +71,7 @@ class LoginViewController: UIViewController {
             do {
                 
                 Utility.hideIndicator()
-                                
+                
                 if let jsonData = data {
                     let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String : Any]
                     if let loginDetailsObject = LoginModel.init(JSON: json!)
@@ -70,7 +96,7 @@ class LoginViewController: UIViewController {
         
         saveUserDetails(user: resObject.data[0])
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notifications.loginNotification), object: nil, userInfo: nil)
-
+        
         
         if !isFromDashboard {
             self.dismiss(animated: true, completion: nil)
@@ -128,8 +154,8 @@ class LoginViewController: UIViewController {
         
         let alert = UIAlertController.init(title: "Message".localised(), message: message, preferredStyle: .alert)
         let cancel = UIAlertAction.init(title: "OK".localised(), style: .default, handler: nil)
-
-//        alert.addAction(action);
+        
+        //        alert.addAction(action);
         alert.addAction(cancel);
         self.present(alert, animated: true, completion: nil)
     }
@@ -152,7 +178,7 @@ class LoginViewController: UIViewController {
     
     func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-
+        
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
     }

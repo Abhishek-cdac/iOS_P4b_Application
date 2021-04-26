@@ -17,10 +17,16 @@ struct Constants {
         static  let  dashboard               = "dashboard"
         static  let  login                   = "login?"
         static  let  event                   = "event"
+        static  let  news                    = "news"
+        static  let  project                 = "project"
         static  let  client                  = "client"
         static  let  register                = "registration"
         static  let  course                  = "course"
         static  let  update_profile          = "update_profile"
+        static  let  course_delete           = "course_delete"
+        static  let  news_delete             = "news_delete"
+        static  let  project_delete          = "project_delete"
+        static  let  client_delete           = "client_delete"
 
     }
     

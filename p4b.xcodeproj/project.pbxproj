@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045EBC7C25777EC700825865 /* ProjectsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045EBC7A25777EC700825865 /* ProjectsTableCell.swift */; };
+		045EBC7D25777EC700825865 /* ProjectsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045EBC7B25777EC700825865 /* ProjectsTableCell.xib */; };
 		7B11A77524E26B6400C66F0A /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11A77424E26B6400C66F0A /* LoginNavigationController.swift */; };
 		7B1234DF24C6D01300DEA57B /* SelectLangVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1234DE24C6D01300DEA57B /* SelectLangVC.swift */; };
 		7B4470D324B83CD400F36E8E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4470D224B83CD400F36E8E /* LoginViewController.swift */; };
@@ -84,6 +86,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		045EBC7A25777EC700825865 /* ProjectsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTableCell.swift; sourceTree = "<group>"; };
+		045EBC7B25777EC700825865 /* ProjectsTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectsTableCell.xib; sourceTree = "<group>"; };
 		050D6BFD4EBB2806AE091E24 /* Pods-p4b.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-p4b.release.xcconfig"; path = "Target Support Files/Pods-p4b/Pods-p4b.release.xcconfig"; sourceTree = "<group>"; };
 		0682CE56D9938791ABB5C2D9 /* Pods-p4b.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-p4b.debug.xcconfig"; path = "Target Support Files/Pods-p4b/Pods-p4b.debug.xcconfig"; sourceTree = "<group>"; };
 		2D092E3397726491B6F3CA6A /* Pods-p4b-p4bUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-p4b-p4bUITests.debug.xcconfig"; path = "Target Support Files/Pods-p4b-p4bUITests/Pods-p4b-p4bUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -430,6 +434,8 @@
 			children = (
 				7BD1A75924C568230043B4FE /* LatestNewsViewController.swift */,
 				7BD1A75D24C570130043B4FE /* LatestNewsTableViewCell.swift */,
+				045EBC7A25777EC700825865 /* ProjectsTableCell.swift */,
+				045EBC7B25777EC700825865 /* ProjectsTableCell.xib */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -563,6 +569,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045EBC7D25777EC700825865 /* ProjectsTableCell.xib in Resources */,
 				7B65E68C24BEFF0E00CE6274 /* CustomTextField.xib in Resources */,
 				7BEE73FA24C044A800497451 /* CustomTextView.xib in Resources */,
 				7B4E082724B82B3A0086D6E8 /* LaunchScreen.storyboard in Resources */,
@@ -717,6 +724,7 @@
 				7BEE73FC24C0496500497451 /* CustomTextView.swift in Sources */,
 				7B65BD4824B9F5D000754945 /* NewsLetterCell.swift in Sources */,
 				7B65E68B24BEFF0E00CE6274 /* CustomTextField.swift in Sources */,
+				045EBC7C25777EC700825865 /* ProjectsTableCell.swift in Sources */,
 				7B6E37DE24E17B8000272C7D /* ProfileViewController.swift in Sources */,
 				7B4470DD24B881CE00F36E8E /* RegisterForCourseVC.swift in Sources */,
 				7B65E68724BEFEA400CE6274 /* CircularProgressView.swift in Sources */,
@@ -858,7 +866,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -913,7 +921,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -939,9 +947,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nectarinfotel.p4bApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "p4b App Development Profile";
+				PROVISIONING_PROFILE_SPECIFIER = com_p4b_dev;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -961,9 +969,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nectarinfotel.p4bApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "p4b App Development Profile";
+				PROVISIONING_PROFILE_SPECIFIER = com_p4b_dev;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

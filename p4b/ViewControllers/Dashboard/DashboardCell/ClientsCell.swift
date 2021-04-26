@@ -11,5 +11,5 @@ import UIKit
 class ClientsCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var baseView: UIView!
-    
+    @IBOutlet weak var deleteButton: UIButton!
 }

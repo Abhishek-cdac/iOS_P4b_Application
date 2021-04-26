@@ -20,6 +20,7 @@ class CourseListTableViewCell: UITableViewCell {
     @IBOutlet weak var teacherName: UILabel!
     @IBOutlet weak var baseView: UIView!
     @IBOutlet weak var applicantsLable: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
     
     var delegate: CourseProtocol? = nil
     

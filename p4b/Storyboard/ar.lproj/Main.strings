@@ -311,14 +311,48 @@
 /* Class = "UILabel"; text = "FOLLOW US"; ObjectID = "80n-JI-p1z"; */
 "80n-JI-p1z.text" = "تابعنا";
 
+/* Class = "UILabel"; text = "Register with us"; ObjectID = "Lje-jN-Nv3"; */
+"Lje-jN-Nv3.text" = "تابعنا";
+
+/* Class = "UILabel"; text = "I accept terms & condition"; ObjectID = "IaO-ir-Mqf"; */
+"IaO-ir-Mqf.text" = "أوافق على الشروط والأحكام";
+
+/* Class = "CustomTextField"; text = "Password"; ObjectID = "Lgb-l0-jS8"; */
+"Lgb-l0-jS8.placeHolder" = "كلمه السر";
+
+/* Class = "CustomTextField"; text = "Confirm Password"; ObjectID = "nEe-FT-PAl"; */
+"nEe-FT-PAl .placeHolder" = "تأكيد كلمة المرور";
+
+/* Class = "UIButton"; text = "Register"; ObjectID = "5dZ-Ex-Pdd"; */
+"5dZ-Ex-Pdd.normalTitle" = "تسجيل";
+
+/* Class = "UILabel"; text = "Hello User!"; ObjectID = "smx-NC-TVI"; */
+"smx-NC-TVI.text" = "تابعنا";
 
 
+/* Class = "UILabel"; text = "Please login to your account to apply to apply for course"; ObjectID = "dGC-Qo-wOp"; */
+"dGC-Qo-wOp.text" = "يرجى تسجيل الدخول إلى حسابك لتقديم طلب للدورة";
 
 
+/* Class = "UIButton"; text = "LOGIN HERE"; ObjectID = "Thl-80-dOE"; */
+"Thl-80-dOE.normalTitle" = "تسجيل الدخول هنا";
 
 
+/* Class = "UILabel"; text = "If you don't have account yet please register"; ObjectID = "7AD-dz-jsW"; */
+"7AD-dz-jsW.text" = "إذا لم يكن لديك حساب بعد يرجى التسجيل";
 
 
+/* Class = "UIButton"; text = "Register here"; ObjectID = "02N-f6-cgQ"; */
+"02N-f6-cgQ.normalTitle" = "سجل هنا";
 
+/* Class = "UILabel"; text = "OR"; ObjectID = "lNZ-tp-p9L"; */
+"lNZ-tp-p9L.text" = "أو";
 
+/* Class = "UILabel"; text = "REGISTER WITH FACEBOOK"; ObjectID = "pf6-Qh-PrN"; */
+"pf6-Qh-PrN.text" = "سجل في الفيسبوك";
 
+/* Class = "UILabel"; text = "REGISTER WITH GOOGLE"; ObjectID = "i75-b7-d78"; */
+"i75-b7-d78.text" = "سجل مع جوجل";
+
+/* Class = "UILabel"; text = "Keep me logged in"; ObjectID = "fcu-g6-nja"; */
+"fcu-g6-nja.text" = "أبقني متصل";

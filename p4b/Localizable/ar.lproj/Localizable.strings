@@ -130,3 +130,30 @@
 
 "Remarks" = "ملاحظات";
 
+"News" = "أخبار";
+
+"Register with us" = "سجل معنا";
+
+"Password" = "كلمه السر";
+
+"Confirm Password" = "تأكيد كلمة المرور";
+
+"Register" = "تسجيل";
+
+ "Hello User!" = "مرحبا المستخدم!";
+
+"Please login to your account to apply to apply for course" = "يرجى تسجيل الدخول إلى حسابك لتقديم طلب للدورة";
+
+"LOGIN HERE" = "تسجيل الدخول هنا";
+
+"If you don't have account yet please register" = "إذا لم يكن لديك حساب بعد يرجى التسجيل";
+
+"Register here" = "سجل هنا";
+
+"OR" = "أو" ;
+
+"REGISTER WITH FACEBOOK" = "سجل في الفيسبوك";
+
+"REGISTER WITH GOOGLE" = "سجل مع جوجل";
+
+"Keep me logged in" = "أبقني متصل";

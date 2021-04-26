@@ -52,9 +52,12 @@ class SelectLangVC: UIViewController {
         if ukRadioImage.isHighlighted  {
             selectedLangExtnStr = "en"
             selectedLangStr = "English"
+            UIView.appearance().semanticContentAttribute = .forceLeftToRight
         }else {
             selectedLangExtnStr = "ar"
             selectedLangStr = "Arabic"
+            UIView.appearance().semanticContentAttribute = .forceRightToLeft
+
         }
         
         self.restartApplication(extStr: selectedLangExtnStr, langStr: selectedLangStr)

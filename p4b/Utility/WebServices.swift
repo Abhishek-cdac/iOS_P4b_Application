@@ -34,6 +34,7 @@ struct WebService {
                 return
             }
             if let success = response.data {
+                print(response)
                 completionHadler(success,nil)
                 return
             }
@@ -51,6 +52,7 @@ struct WebService {
 
         Alamofire.request(encodedUrl!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseString { (response) in
             
+         
             if let error = response.error {
                 completionHadler(nil,error)
                 return

@@ -21,6 +21,7 @@ class ServicesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         //addCompanyLogoWithTable(scroll: servicesTableView)
         customNavigationBar.elevate(elevation: 2.0)
         ourServicesArray = [Service.init(image: "integration", name: "P4BERP - Integrated Business System".localised()), Service.init(image: "paymentGateway", name: "Online Payment Gateway".localised()), Service.init(image: "webDesign", name: "Web Design".localised())];
         servicesTableView.reloadData()

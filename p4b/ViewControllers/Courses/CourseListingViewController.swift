@@ -23,7 +23,7 @@ class CourseListingViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.loginNotification(_:)), name: NSNotification.Name(rawValue: Constants.Notifications.loginNotification), object: nil)
 
-    }
+     }
     
     @objc func loginNotification(_ notification: NSNotification) {
         checkLoginAndProfileUpdate()
@@ -97,6 +97,41 @@ class CourseListingViewController: UIViewController {
         }
     }
     
+    //MARK:- Course Delete
+    
+    func courseDeleteAPI(id:Int) {
+        
+        Utility.startIndicator()
+        
+        let requestparameters = ["course_id" :id] as [String : Any]
+    
+        WebService.requestServiceWithParametersPostMethod(url: Constants.singleton.hostName, requestType: Constants.RequestType.course_delete, parameters: requestparameters) { (data, error) in
+            do {
+                
+                Utility.hideIndicator()
+                
+                if let jsonData = data {
+                    let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String : Any]
+                    if let loginDetailsObject = LoginModel.init(JSON: json!)
+                    {
+                        if loginDetailsObject.success == true {
+                            self.getEventListing()
+                        }else {
+                            Utility.showAlert(message: loginDetailsObject.message)
+                        }
+                    }
+                }else {
+                    Utility.showAlert(message: Constants.validationMesages.tryAgainError)
+                }
+                
+            }catch {
+                Utility.showAlert(message: Constants.validationMesages.tryAgainError)
+            }
+        }
+        
+    }
+    
+    
     //MARK: - API Processing Methods
     //MARK: -
     
@@ -130,13 +165,38 @@ extension CourseListingViewController: UITableViewDelegate,UITableViewDataSource
 
         
         let coursesObj = coursesArray[indexPath.row]
-//        cell.courseNameLabel.text = coursesObj.title + " | "
+        cell.courseNameLabel.text = coursesObj.heading  + " | "
+   //    cell.courseNameLabel.text = coursesObj.title + " | "
 //        cell.courseDurationLabel.text = "Course Duration".localised() + " : " + coursesObj.duration
 //        cell.courseStartDateLabel.text = "Course Start Date".localised() + " : " + coursesObj.startDate
 //        cell.teacherName.text = "By " + coursesObj.teacherName
 //        cell.applicantsLable.text = coursesObj.applicants + " applied".localised()
+        cell.deleteButton.tag = indexPath.row
+        cell.deleteButton.addTarget(self, action: #selector(self.deleteButtonAction(_:)), for: .touchUpInside)
         cell.baseView.elevate(elevation: 2.0)
         return cell
+    }
+    
+    @objc func deleteButtonAction(_ sender: UIButton) {
+     
+        alert(index: sender.tag)
+      }
+    
+    func alert(index:Int){
+        let alert = UIAlertController(title: "Confirm", message: "Are yo sure you want to delete?", preferredStyle: .alert)
+            
+             let ok = UIAlertAction(title: "Yes", style: .default, handler: { action in
+                let coursesObj = self.coursesArray[index]
+                self.courseDeleteAPI(id: coursesObj.id)
+             })
+             alert.addAction(ok)
+             let cancel = UIAlertAction(title: "No", style: .default, handler: { action in
+             })
+             alert.addAction(cancel)
+             DispatchQueue.main.async(execute: {
+                self.present(alert, animated: true)
+             })
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

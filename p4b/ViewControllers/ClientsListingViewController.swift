@@ -52,6 +52,42 @@ class ClientsListingViewController: UIViewController {
         }
     }
     
+    
+    //MARK:- Client Delete
+    
+    func clientDeleteAPI(id:Int) {
+        
+        Utility.startIndicator()
+        
+        let requestparameters = ["client_id" : id] as [String : Any]
+        
+      
+        WebService.requestServiceWithParametersPostMethod(url: Constants.singleton.hostName, requestType: Constants.RequestType.client_delete, parameters: requestparameters) { (data, error) in
+            do {
+                
+                Utility.hideIndicator()
+                
+                if let jsonData = data {
+                    let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String : Any]
+                    if let loginDetailsObject = LoginModel.init(JSON: json!)
+                    {
+                        if loginDetailsObject.success == true {
+                            self.getClientListing()
+                        }else {
+                            Utility.showAlert(message: loginDetailsObject.message)
+                        }
+                    }
+                }else {
+                    Utility.showAlert(message: Constants.validationMesages.tryAgainError)
+                }
+                
+            }catch {
+                Utility.showAlert(message: Constants.validationMesages.tryAgainError)
+            }
+        }
+        
+    }
+    
     //MARK: - API Processing Methods
     //MARK: -
     
@@ -80,6 +116,8 @@ extension ClientsListingViewController: UICollectionViewDelegate,UICollectionVie
             let obj = clientsArray[indexPath.row]
             cell.image.downloaded(from: obj.image, contentMode: .scaleToFill)
             cell.baseView.elevate(elevation: 2.0)
+            cell.deleteButton.tag = indexPath.row
+            cell.deleteButton.addTarget(self, action: #selector(self.deleteButtonAction(_:)), for: .touchUpInside)
             return cell
             
         }else {
@@ -88,6 +126,27 @@ extension ClientsListingViewController: UICollectionViewDelegate,UICollectionVie
         }
     }
     
+    @objc func deleteButtonAction(_ sender: UIButton) {
+     
+        alert(index: sender.tag)
+      }
+    
+    func alert(index:Int){
+        let alert = UIAlertController(title: "Confirm", message: "Are yo sure you want to delete?", preferredStyle: .alert)
+            
+             let ok = UIAlertAction(title: "Yes", style: .default, handler: { action in
+                let obj = self.clientsArray[index]
+                self.clientDeleteAPI(id: obj.id)
+             })
+             alert.addAction(ok)
+             let cancel = UIAlertAction(title: "No", style: .default, handler: { action in
+             })
+             alert.addAction(cancel)
+             DispatchQueue.main.async(execute: {
+                self.present(alert, animated: true)
+             })
+        
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     }
     

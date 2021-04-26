@@ -14,6 +14,7 @@ class LatestNewsTableViewCell: UITableViewCell {
     @IBOutlet weak var eventImage: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titlelabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
     
 
     override func awakeFromNib() {
